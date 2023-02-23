@@ -1,8 +1,7 @@
 from datetime import timedelta
 from airflow import DAG
-import create_bucket
 from airflow.operators.dummy import DummyOperator
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 
 args = {
@@ -24,9 +23,9 @@ run_this_first = DummyOperator(
     dag=dag
 )
 
-python_task = PythonOperator(
+python_task = BashOperator(
     task_id='python_task',
-    python_callable=create_bucket.main,
+    bash_command='python create_bucket.py',
     dag=dag
 )
 
