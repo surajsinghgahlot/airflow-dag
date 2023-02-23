@@ -1,4 +1,3 @@
-### We will name the DAG as edgeToEMRandS3
 from datetime import timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
@@ -6,7 +5,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.utils.dates import days_ago
 
 args = {
-    'owner': 'airflow',
+    'owner': 'suraj',
 }
 
 dag = DAG(
