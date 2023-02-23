@@ -29,6 +29,3 @@ def create_bucket():
         else:
             print(e)
     return None
-
-if __name__=="__main__":
-    create_bucket()
