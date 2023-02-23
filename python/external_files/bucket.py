@@ -1,6 +1,6 @@
 from datetime import timedelta
 from airflow import DAG
-from bucket import create_bucket
+from create_bucket import create_bucket
 from airflow.operators.dummy import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
