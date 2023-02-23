@@ -25,7 +25,7 @@ run_this_first = DummyOperator(
 
 now_run_spark_job = BashOperator(
     task_id='now_run_spark_job',
-    bash_command='echo "hello"',
+    bash_command='./bash.sh',
     dag=dag,
 )
 
