@@ -25,7 +25,7 @@ run_this_first = DummyOperator(
 
 python_task = BashOperator(
     task_id='python_task',
-    bash_command='python create_bucket.py',
+    bash_command='python ./create_bucket.py',
     dag=dag
 )
 
