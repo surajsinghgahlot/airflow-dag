@@ -1,3 +1,4 @@
+from datetime import timedelta
 from airflow import DAG
 from airflow.decorators import task
 from airflow.utils.dates import days_ago
@@ -12,11 +13,11 @@ args = {
 
 dag = DAG(
     dag_id="example_python_operator",
-    schedule=None,
     default_args=args,
+    schedule_interval=None,
     start_date=days_ago(2),
-    catchup=False,
-    tags=["example_python_operator"],
+    dagrun_timeout=timedelta(minutes=60),
+    tags=["example_python_operator"]
 )
 
 @task()
