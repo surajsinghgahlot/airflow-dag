@@ -10,7 +10,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="aws_bucket",
+    dag_id="external_files",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
