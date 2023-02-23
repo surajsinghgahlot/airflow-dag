@@ -47,18 +47,13 @@ def create_bucket():
     except Exception as e:
         if e.response['Error']['Code']=="BucketAlreadyOwnedByYou":
             print("Bucket Already Owned By You")
-            sys.exit(0)
         elif e.response['Error']['Code']=="BucketAlreadyExists":
             print("Bucket Already Exist")
-            sys.exit(0)
         elif e.response['Error']['Code']=="InvalidBucketName":
             print("Bucket Name Is Invalid")
-            sys.exit(0)
         else:
             print(e)
-            sys.exit(0)
     return None
-
 
 
 python_task = PythonOperator(
