@@ -24,7 +24,7 @@ run_this_first = DummyOperator(
 
 now_run_spark_job = BashOperator(
     task_id='now_run_spark_job',
-    bash_command='bash ls && pwd',
+    bash_command='ls && pwd',
     dag=dag,
 )
 
