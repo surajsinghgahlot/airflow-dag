@@ -25,7 +25,7 @@ run_this_first = DummyOperator(
 
 now_run_spark_job = BashOperator(
     task_id='now_run_spark_job',
-    bash_command='ls /dags/airflow-dag/bash/bash.sh',
+    bash_command='ls /dags',
     dag=dag,
 )
 
