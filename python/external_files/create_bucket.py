@@ -14,7 +14,7 @@ def get_s3_client():
     return s3_client
 
 #Code:
-def create_bucket():
+def bucket():
     s3_response=get_s3_client()
     try:
         s3_response.create_bucket(Bucket=BUCKET_NAME,CreateBucketConfiguration={'LocationConstraint': REGION})
@@ -31,4 +31,4 @@ def create_bucket():
     return None
 
 if __name__=="__main__":
-    create_bucket()
+    bucket()
