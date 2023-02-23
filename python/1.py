@@ -10,12 +10,12 @@ args = {
 }
 
 dag = DAG(
-    dag_id="example_python_operator",
+    dag_id="example python operator",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
     dagrun_timeout=timedelta(minutes=60),
-    tags=["example_python_operator"]
+    tags=["for testing purpose"]
 )
 
 run_this_first = DummyOperator(

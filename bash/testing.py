@@ -10,7 +10,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id='testing',
+    dag_id='example bash operator',
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
