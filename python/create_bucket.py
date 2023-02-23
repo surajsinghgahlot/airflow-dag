@@ -8,6 +8,25 @@ from airflow.operators.dummy import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
+args = {
+    'owner': 'suraj',
+    'type': 'PythonOperator',
+}
+
+dag = DAG(
+    dag_id="aws_bucket",
+    default_args=args,
+    schedule_interval=None,
+    start_date=days_ago(2),
+    dagrun_timeout=timedelta(minutes=60),
+    tags=["s3 bucket"]
+)
+
+run_this_first = DummyOperator(
+    task_id='run_this_first',
+    dag=dag
+)
+
 ACCESS_KEY=Variable.get("ACCESS_KEY")
 SECRET_KEY=Variable.get("SECRET_KEY")
 REGION="ap-south-1"
@@ -40,24 +59,7 @@ def create_bucket():
             sys.exit(0)
     return None
 
-args = {
-    'owner': 'suraj',
-    'type': 'PythonOperator',
-}
 
-dag = DAG(
-    dag_id="aws_bucket",
-    default_args=args,
-    schedule_interval=None,
-    start_date=days_ago(2),
-    dagrun_timeout=timedelta(minutes=60),
-    tags=["s3 bucket"]
-)
-
-run_this_first = DummyOperator(
-    task_id='run_this_first',
-    dag=dag
-)
 
 python_task = PythonOperator(
     task_id='python_task',
