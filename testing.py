@@ -10,13 +10,13 @@ args = {
 }
 
 dag = DAG(
-    dag_id='edgeToEMRandS3',
-    default_args=args,
-    schedule_interval=None,
-    start_date=days_ago(2),
-    dagrun_timeout=timedelta(minutes=60),
-    tags=['somethingForYouToFindYourDAG']
-    #params={"example_key": "example_value"},
+    dag_id='testing',
+#     default_args=args,
+#     schedule_interval=None,
+#     start_date=days_ago(2),
+#     dagrun_timeout=timedelta(minutes=60),
+#     tags=['somethingForYouToFindYourDAG']
+#     #params={"example_key": "example_value"},
 )
 
 run_this_first = DummyOperator(
