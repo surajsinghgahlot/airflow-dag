@@ -1,6 +1,5 @@
 #=================================================================================================================
 import boto3
-import os
 import sys
 from datetime import timedelta
 from airflow import DAG
