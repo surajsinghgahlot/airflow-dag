@@ -1,6 +1,7 @@
 from datetime import timedelta
 from airflow import DAG
-from airflow.decorators import task
+from airflow.operators.dummy import DummyOperator
+from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
 import numpy as np
@@ -20,11 +21,15 @@ dag = DAG(
     tags=["example_python_operator"]
 )
 
-@task()
-def print_array():
-    """Print Numpy array."""
-    a = np.arange(15).reshape(3, 5)
-    print(a)
-    return a
+run_this_first = DummyOperator(
+    task_id='run_this_first',
+    dag=dag,
+)
 
-print_array()
+def my_func():
+  print('welcome to Dezyre')
+  return 'welcome to Dezyre'
+
+python_task = PythonOperator(task_id='python_task', python_callable=my_func, dag=dag)
+
+run_this_first >> python_task
