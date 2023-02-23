@@ -55,7 +55,6 @@ def create_bucket():
             print(e)
     return None
 
-
 python_task = PythonOperator(
     task_id='python_task',
     python_callable=create_bucket,
