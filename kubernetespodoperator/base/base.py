@@ -28,7 +28,7 @@ hello_world_kubernetes = KubernetesPodOperator(
     task_id='hello_world_kubernetes',
     image='hello-world:latest',
     in_cluster=True,
-    is_delete_operator_pod=True,
+    is_delete_operator_pod=False,
 )
 
 run_this_first >> hello_world_kubernetes
