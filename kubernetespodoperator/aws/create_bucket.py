@@ -30,7 +30,6 @@ create_s3_bucket = KubernetesPodOperator(
     image='ss14suraj/boto3:s3',
     cmds=["python"],
     arguments=["create_bucket.py"],
-    # image_pull_secrets=[k8s.V1LocalObjectReference("imagescretsname")],
     env_vars={
         "AWS_ACCESS_KEY": Variable.get("ACCESS_KEY"),
         "AWS_SECRET_KEY": Variable.get("SECRET_KEY"),
