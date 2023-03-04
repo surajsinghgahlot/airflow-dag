@@ -5,8 +5,7 @@ from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import Kubernete
 from airflow.utils.dates import days_ago
 
 args = {
-    'owner': 'Suraj',
-    'type': 'KubernetesPodOperator',
+    'owner': 'KubernetesPodOperator',
 }
 
 dag = DAG(

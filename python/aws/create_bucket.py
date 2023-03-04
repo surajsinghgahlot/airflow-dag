@@ -8,8 +8,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
 args = {
-    'owner': 'Suraj',
-    'type': 'PythonOperator',
+    'owner': 'PythonOperator',
 }
 
 dag = DAG(
