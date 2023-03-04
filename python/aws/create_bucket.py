@@ -12,12 +12,12 @@ args = {
 }
 
 dag = DAG(
-    dag_id="create_s3_bucket",
+    dag_id="python_s3_bucket",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
     dagrun_timeout=timedelta(minutes=60),
-    tags=["s3 bucket"]
+    tags=["for testing purpose"]
 )
 
 run_this_first = DummyOperator(
