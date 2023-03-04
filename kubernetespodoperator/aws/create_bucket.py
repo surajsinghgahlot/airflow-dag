@@ -1,6 +1,7 @@
 from datetime import timedelta
 from airflow import DAG
 from airflow.operators.dummy import DummyOperator
+from kubernetes.client import models as k8s
 from airflow.models import Variable
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 from airflow.utils.dates import days_ago
@@ -28,6 +29,7 @@ create_s3_bucket = KubernetesPodOperator(
     namespace="airflow",
     task_id='create_s3_bucket',
     image='ss14suraj/boto3:s3',
+    image_pull_secrets=[k8s.V1LocalObjectReference("docker-container-registry")],
     cmds=["python"],
     arguments=["create_bucket.py"],
     env_vars={
