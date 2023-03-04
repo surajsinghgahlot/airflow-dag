@@ -37,10 +37,10 @@ create_s3_bucket = KubernetesPodOperator(
     cmds=["python"],
     arguments=["create_bucket.py"],
     env_vars={
-        ACCESS_KEY: Variable.get("ACCESS_KEY"),
-        SECRET_KEY: Variable.get("SECRET_KEY"),
-        REGION: "ap-south-1",
-        BUCKET_NAME: "ss14suraj1234"
+        AWS_ACCESS_KEY: Variable.get("ACCESS_KEY"),
+        AWS_SECRET_KEY: Variable.get("SECRET_KEY"),
+        AWS_REGION: "ap-south-1",
+        AWS_SOURCE_BUCKET: "ss14suraj1234"
     },
     get_logs=True,
     in_cluster=True,
