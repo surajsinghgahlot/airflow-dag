@@ -5,7 +5,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.utils.dates import days_ago
 
 args = {
-    'owner': 'suraj',
+    'owner': 'Suraj',
     'type': 'BashOperator',
 }
 
