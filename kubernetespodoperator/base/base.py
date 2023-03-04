@@ -23,10 +23,12 @@ run_this_first = DummyOperator(
 )
 
 hello_world_kubernetes = KubernetesPodOperator(
+    name='hello_world',
     namespace="spark-jobs",
     task_id='hello_world_kubernetes',
     image='hello-world:latest',
-    name='hello_world',
+    in_cluster=True,
+    is_delete_operator_pod=True,
 )
 
 run_this_first >> hello_world_kubernetes
