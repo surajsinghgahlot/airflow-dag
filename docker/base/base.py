@@ -10,12 +10,12 @@ args = {
 }
 
 dag = DAG(
-    dag_id='docker_python_operator',
+    dag_id="base_docker_operator",
     default_args=args, 
     schedule_interval=None,
     start_date=days_ago(2),
     dagrun_timeout=timedelta(minutes=60),
-    tags=['for testing purpose']
+    tags=["for testing purpose"]
 )
 
 run_this_first = DummyOperator(
