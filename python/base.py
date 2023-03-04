@@ -10,7 +10,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="example_python_operator",
+    dag_id="base_python_operator",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),

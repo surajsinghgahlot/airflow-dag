@@ -13,7 +13,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="aws_bucket",
+    dag_id="create_aws_bucket",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
