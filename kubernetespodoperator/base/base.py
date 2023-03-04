@@ -22,13 +22,13 @@ run_this_first = DummyOperator(
     dag=dag
 )
 
-hello_world_kubernetes = KubernetesPodOperator(
+base_kubernetes_job = KubernetesPodOperator(
     name='hello_world',
     namespace="airflow",
-    task_id='hello_world_kubernetes',
+    task_id='base_kubernetes_job',
     image='hello-world:latest',
     in_cluster=True,
     is_delete_operator_pod=False,
 )
 
-run_this_first >> hello_world_kubernetes
+run_this_first >> base_kubernetes_job

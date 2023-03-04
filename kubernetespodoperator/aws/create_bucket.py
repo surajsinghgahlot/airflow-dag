@@ -10,7 +10,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="create_bucket",
+    dag_id="create_s3_bucket",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),

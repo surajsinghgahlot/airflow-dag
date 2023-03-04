@@ -22,10 +22,10 @@ run_this_first = DummyOperator(
     dag=dag,
 )
 
-now_run_spark_job = BashOperator(
-    task_id='now_run_spark_job',
+base_bash_job = BashOperator(
+    task_id='base_bash_job',
     bash_command='./bash.sh',
     dag=dag,
 )
 
-run_this_first >> now_run_spark_job
+run_this_first >> base_bash_job

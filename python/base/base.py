@@ -26,10 +26,10 @@ def my_func():
     print('welcome to Dezyre')
     return 'welcome to Dezyre'
 
-python_task = PythonOperator(
-    task_id='python_task', 
+base_python_job = PythonOperator(
+    task_id='base_python_job', 
     python_callable=my_func, 
     dag=dag
 )
 
-run_this_first >> python_task
+run_this_first >> base_python_job

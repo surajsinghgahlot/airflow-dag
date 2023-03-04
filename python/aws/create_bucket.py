@@ -12,7 +12,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="create_bucket",
+    dag_id="create_s3_bucket",
     default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
@@ -53,10 +53,10 @@ def create_bucket():
             print(e)
     return None
 
-python_task = PythonOperator(
-    task_id='python_task',
+create_s3_bucket = PythonOperator(
+    task_id='create_s3_bucket',
     python_callable=create_bucket,
     dag=dag
 )
 
-run_this_first >> python_task
+run_this_first >> create_s3_bucket
