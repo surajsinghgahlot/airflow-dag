@@ -10,7 +10,7 @@ args = {
 
 dag = DAG(
     dag_id="base_kubernetes_operator",
-    default_args=args, 
+    default_args=args,
     schedule_interval=None,
     start_date=days_ago(2),
     dagrun_timeout=timedelta(minutes=60),
