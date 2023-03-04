@@ -24,7 +24,7 @@ run_this_first = DummyOperator(
 
 hello_world_kubernetes = KubernetesPodOperator(
     name='hello_world',
-    namespace="spark-jobs",
+    namespace="airflow",
     task_id='hello_world_kubernetes',
     image='hello-world:latest',
     in_cluster=True,
