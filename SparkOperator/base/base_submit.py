@@ -24,6 +24,7 @@ run_this_first = DummyOperator(
 
 base_spark_job = SparkSubmitOperator(
 	application ='./basic_submit_job.py',
+    env_vars={'PATH': '/bin:/usr/bin:/usr/local/bin'},
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
