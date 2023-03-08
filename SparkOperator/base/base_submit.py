@@ -1,6 +1,6 @@
 from datetime import timedelta
 from airflow import DAG
-from airflow.operators.bash import BashOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator 
 from airflow.utils.dates import days_ago
 
@@ -17,9 +17,8 @@ dag = DAG(
     tags=["for testing purpose"]
 )
 
-run_this_first = BashOperator(
+run_this_first = DummyOperator(
     task_id='run_this_first',
-    bash_command='echo $PATH',
     dag=dag
 )
 
