@@ -23,7 +23,7 @@ run_this_first = DummyOperator(
 )
 
 base_spark_job = SparkSubmitOperator(
-	application ='/dags/airflow-dag/SparkOperator/base/basic_submit_job.py',
+	application ='/opt/bitnami/airflow/dags/git_airflow-dag/SparkOperator/base/basic_submit_job.py',
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
