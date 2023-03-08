@@ -18,10 +18,10 @@ dag = DAG(
     tags=["for testing purpose"]
 )
 
-run_this_first = DummyOperator(
-    task_id='run_this_first',
-    dag=dag
-)
+# run_this_first = DummyOperator(
+#     task_id='run_this_first',
+#     dag=dag
+# )
 
 # base_spark_job = SparkSubmitOperator(
 # 	application ='./basic_submit_job.py',
@@ -30,12 +30,22 @@ run_this_first = DummyOperator(
 # 	dag=dag
 # )
 
-base_bash_job = BashOperator(
+base_bash_job_1 = BashOperator(
     task_id='base_bash_job',
     bash_command='ls',
-    bash_command='pwd',
-    bash_command='ls /',
     dag=dag,
 )
 
-run_this_first >> base_bash_job
+base_bash_job_2 = BashOperator(
+    task_id='base_bash_job',
+    bash_command='pwd',
+    dag=dag,
+)
+
+base_bash_job_3 = BashOperator(
+    task_id='base_bash_job',
+    bash_command='whereis spark',
+    dag=dag,
+)
+
+base_bash_job_1 >> base_bash_job_2 >> base_bash_job_3
