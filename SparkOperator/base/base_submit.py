@@ -1,7 +1,6 @@
 from datetime import timedelta
 from airflow import DAG
 from airflow.operators.dummy import DummyOperator
-from airflow.operators.bash import BashOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator 
 from airflow.utils.dates import days_ago
 
@@ -18,16 +17,13 @@ dag = DAG(
     tags=["for testing purpose"]
 )
 
-run_this_first = BashOperator(
-    task_id='base_bash_job',
-    bash_command='ls ./basic_submit_job.py',
-    dag=dag,
+run_this_first = DummyOperator(
+    task_id='run_this_first',
+    dag=dag
 )
-
 
 base_spark_job = SparkSubmitOperator(
 	application ='./basic_submit_job.py',
-    env_vars={'PATH': '/bin:/usr/bin:/usr/local/bin'},
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
