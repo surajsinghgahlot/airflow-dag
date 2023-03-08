@@ -8,6 +8,8 @@ args = {
     'owner': 'SparkOperator',
 }
 
+dag_path = '/dags/airflow-dag/'
+
 dag = DAG(
     dag_id="base_spark_operator",
     default_args=args,
