@@ -20,7 +20,7 @@ dag = DAG(
 
 run_this_first = BashOperator(
     task_id='base_bash_job',
-    bash_command='ls ',
+    bash_command='ls ./basic_submit_job.py',
     dag=dag,
 )
 
