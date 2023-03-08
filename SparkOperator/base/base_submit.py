@@ -24,6 +24,7 @@ run_this_first = DummyOperator(
 
 base_spark_job = SparkSubmitOperator(
 	application ='./basic_submit_job.py',
+    env_vars={'PATH': '/opt/bitnami/common/bin:/opt/bitnami/python/bin:/opt/bitnami/postgresql/bin:/opt/bitnami/airflow/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'},
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
