@@ -24,7 +24,7 @@ run_this_first = DummyOperator(
 
 base_bash_job = BashOperator(
     task_id='base_bash_job',
-    bash_command='ls /opt/bitnami/airflow/dags/git_airflow-dag/SparkOperator/base/basic_submit_job.py',
+    bash_command='./bash.sh',
     dag=dag,
 )
 
