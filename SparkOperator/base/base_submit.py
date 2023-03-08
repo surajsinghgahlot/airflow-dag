@@ -31,19 +31,19 @@ dag = DAG(
 # )
 
 base_bash_job_1 = BashOperator(
-    task_id='base_bash_job',
+    task_id='base_bash_job_1',
     bash_command='ls',
     dag=dag,
 )
 
 base_bash_job_2 = BashOperator(
-    task_id='base_bash_job',
+    task_id='base_bash_job_2',
     bash_command='pwd',
     dag=dag,
 )
 
 base_bash_job_3 = BashOperator(
-    task_id='base_bash_job',
+    task_id='base_bash_job_3',
     bash_command='whereis spark',
     dag=dag,
 )
