@@ -23,7 +23,7 @@ run_this_first = DummyOperator(
 )
 
 base_spark_job = SparkSubmitOperator(
-	application ='./basic_submit_job.py',
+	application ='basic_submit_job.py',
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
