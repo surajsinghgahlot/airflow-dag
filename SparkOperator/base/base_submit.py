@@ -8,8 +8,6 @@ args = {
     'owner': 'SparkOperator',
 }
 
-dag_path = '/dags/airflow-dag/'
-
 dag = DAG(
     dag_id="base_spark_operator",
     default_args=args,
@@ -25,7 +23,7 @@ run_this_first = DummyOperator(
 )
 
 base_spark_job = SparkSubmitOperator(
-	application ='./basic_submit_job.py',
+	application ='/dags/airflow-dag/SparkOperator/base/basic_submit_job.py',
 	conn_id= 'spark_local', 
 	task_id='base_spark_job', 
 	dag=dag
