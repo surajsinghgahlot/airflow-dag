@@ -1,8 +1,11 @@
 from datetime import timedelta
+import os
 from airflow import DAG
 from airflow.operators.dummy import DummyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator 
 from airflow.utils.dates import days_ago
+
+os.environ["PYSPARK_PYTHON"]="/opt/bitnami/airflow/venv/bin/python3.9"
 
 args = {
     'owner': 'SparkOperator',
