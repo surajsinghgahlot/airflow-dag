@@ -5,7 +5,8 @@ from airflow.operators.dummy import DummyOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator 
 from airflow.utils.dates import days_ago
 
-os.environ["PYSPARK_PYTHON"]="/opt/bitnami/airflow/venv/bin/python3.9"
+os.environ["PYSPARK_PYTHON"]="/opt/bitnami/python/bin/python3.9"
+os.environ["JAVA_HOME"]="/usr/bin/java"
 
 args = {
     'owner': 'SparkOperator',
