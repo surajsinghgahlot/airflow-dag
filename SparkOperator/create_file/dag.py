@@ -26,11 +26,11 @@ run_this_first = DummyOperator(
     dag=dag
 )
 
-base_spark_job = SparkSubmitOperator(
+create_file = SparkSubmitOperator(
 	application ='/opt/bitnami/airflow/dags/git_airflow-dag/SparkOperator/create_file/spark_job.py',
 	conn_id= 'spark_default',
-	task_id='base_spark_job',
+	task_id='create_file',
 	dag=dag
 )
 
-run_this_first >> base_spark_job
+run_this_first >> create_file
